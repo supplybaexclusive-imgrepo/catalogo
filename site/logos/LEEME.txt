@@ -1,0 +1,1 @@
+Logos de marcas: un archivo por marca, con el nombre de la carpeta en minusculas y con guiones (ej. bape.webp, rick-owens.png, nike-y-jordan.svg). Pueden ser cuadrados con su fondo incluido. Si falta uno, el boton muestra el nombre de la marca en texto. Ya estan cargadas las 13 marcas.

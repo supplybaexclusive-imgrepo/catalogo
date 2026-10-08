@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Supply BA — Catálogo de ropa y zapatillas | Encargue y stock</title>
+<meta name="description" content="Catálogo de Supply BA: +2.400 productos de ropa y zapatillas de las mejores marcas. Mirá el stock disponible o pedí por encargue por WhatsApp o Instagram.">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://supplybaencargos.netlify.app/">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Supply BA">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Supply BA — Ropa y zapatillas | Encargue y stock">
+<meta property="og:description" content="+2.400 productos de las mejores marcas. Stock disponible o por encargue. Pedí por WhatsApp o Instagram.">
+<meta property="og:url" content="https://supplybaencargos.netlify.app/">
+<meta property="og:image" content="https://supplybaencargos.netlify.app/brand/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Supply BA — Catálogo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Supply BA — Ropa y zapatillas | Encargue y stock">
+<meta name="twitter:description" content="+2.400 productos de las mejores marcas. Stock disponible o por encargue. Pedí por WhatsApp o Instagram.">
+<meta name="twitter:image" content="https://supplybaencargos.netlify.app/brand/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;
+  --surface:#0c0c0f;
+  --line:#1e1f24;
+  --text:#eceef1;
+  --mute:#8b9099;
+  --logo-bg:#0c0c0f;
+  --chrome:linear-gradient(100deg,#5b6068 0%,#f6f8fa 22%,#8c929a 40%,#fff 58%,#6e747c 78%,#c9ced4 100%);
+  --pad:clamp(14px,3vw,32px);
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font:400 15px/1.45 'Archivo',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-font-smoothing:antialiased;
+}
+body.lock{overflow:hidden}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid #dfe3e8;outline-offset:2px}
+[data-view="home"] .catonly{display:none!important}
+[data-view="cat"] .homeonly{display:none!important}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;padding:12px var(--pad)}
+.logo{display:flex;align-items:center;text-decoration:none;flex:none}
+.logo img{display:block;height:clamp(38px,9vw,54px);width:auto}
+.search{flex:1;min-width:0;max-width:420px;margin-left:auto}
+.search input{
+  width:100%;height:42px;padding:0 14px;background:var(--surface);
+  border:1px solid var(--line);border-radius:3px;outline-offset:0;
+}
+.search input::placeholder{color:var(--mute)}
+.search input:focus{border-color:#59606a;outline:none}
+
+/* ---------- botones / chips ---------- */
+.btn{
+  min-height:48px;padding:0 18px;display:flex;align-items:center;justify-content:center;gap:10px;
+  border-radius:3px;border:1px solid #444850;background:transparent;color:var(--text);text-decoration:none;font-weight:600;cursor:pointer;
+}
+.btn.main{background:var(--chrome);border-color:transparent;color:#000}
+.btn.stock{background:#1db954;border-color:transparent;color:#04130a;font-weight:700}
+.btn:hover{filter:brightness(1.12)}
+.btn:disabled{opacity:.4;cursor:default}
+.rows{display:flex;flex-direction:column;gap:10px;margin:0 calc(var(--pad) * -1) 18px}
+.row{display:flex;align-items:center;gap:8px;overflow-x:auto;padding:0 var(--pad);scrollbar-width:none}
+.row::-webkit-scrollbar{display:none}
+.rowlab{flex:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);width:48px}
+.chip{
+  flex:none;min-height:40px;padding:0 14px;display:inline-flex;align-items:center;gap:8px;
+  background:transparent;border:1px solid var(--line);border-radius:3px;color:var(--mute);
+  cursor:pointer;white-space:nowrap;
+}
+.chip small{font-size:12px;opacity:.7}
+.chip:hover{color:var(--text);border-color:#3a3d44}
+.chip[aria-pressed="true"]{background:var(--chrome);border-color:transparent;color:#000;font-weight:600}
+.row.sm .chip{min-height:36px;font-size:13.5px}
+
+/* ---------- landing ---------- */
+main{padding:0 var(--pad) 60px;max-width:1500px;margin:0 auto}
+.hero{padding:clamp(34px,9vw,92px) 0 clamp(30px,6vw,56px)}
+.hero h1{
+  margin:0;font-stretch:125%;font-weight:800;line-height:1.04;letter-spacing:-.005em;
+  font-size:clamp(30px,7.2vw,68px);max-width:17ch;
+}
+.chr{background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero p{margin:18px 0 26px;color:var(--mute);max-width:46ch;font-size:clamp(15px,2.2vw,17px)}
+.hero .btn{display:inline-flex;padding:0 28px}
+.sec{margin:40px 0 16px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:600;display:flex;gap:10px;align-items:center}
+.sec span{color:#cfd4da}
+.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:3px}
+@media(min-width:700px){.cats{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.cats{grid-template-columns:repeat(4,1fr)}}
+.cat{position:relative;display:block;aspect-ratio:1/1;background:var(--surface);overflow:hidden;text-decoration:none}
+.cat img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+.cat:hover img{transform:scale(1.05)}
+.cat .lb{
+  position:absolute;inset:auto 0 0 0;padding:44px 14px 14px;
+  background:linear-gradient(transparent,rgba(0,0,0,.88));
+  display:flex;justify-content:space-between;align-items:baseline;gap:8px
+}
+.cat b{font-stretch:125%;font-weight:800;font-size:clamp(15px,2.6vw,21px);letter-spacing:.01em}
+.cat small{color:#b9bec6;font-size:12.5px}
+.brandgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(min-width:560px){.brandgrid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:800px){.brandgrid{grid-template-columns:repeat(6,1fr)}}
+@media(min-width:1100px){.brandgrid{grid-template-columns:repeat(8,1fr)}}
+.bt{
+  aspect-ratio:1/1;display:grid;place-items:center;padding:16%;
+  background:var(--logo-bg);border:1px solid var(--line);border-radius:3px;text-decoration:none;
+  transition:border-color .2s
+}
+.bt:hover{border-color:#6a707a}
+.bt.has-logo{padding:0;overflow:hidden}
+.bt img{width:100%;height:100%;object-fit:cover;display:block}
+.bt span{font-stretch:125%;font-weight:800;font-size:clamp(12px,2.2vw,15px);text-align:center;line-height:1.15;letter-spacing:.02em;text-transform:uppercase;overflow-wrap:anywhere}
+
+/* ---------- destacados ---------- */
+.rail{display:flex;gap:10px;overflow-x:auto;padding:2px 0 10px;scroll-snap-type:x proximity;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 auto;width:clamp(140px,42vw,190px);scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;text-decoration:none}
+.card .ph{aspect-ratio:1/1;background:var(--surface);border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}
+.card img{width:100%;height:100%;object-fit:contain;transition:transform .35s ease}
+.card:hover img{transform:scale(1.04)}
+.card .nm{padding:0 2px;font-size:13.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .bm{padding:0 2px;font-size:12px;color:var(--mute)}
+
+/* ---------- whatsapp flotante ---------- */
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:20;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.45);text-decoration:none;transition:transform .2s,filter .2s}
+.fab:hover{transform:scale(1.06);filter:brightness(1.05)}
+.fab svg{width:30px;height:30px;display:block}
+
+/* ---------- encargue ---------- */
+#encargue{scroll-margin-top:84px;padding-top:8px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:3px;counter-reset:s;max-width:820px}
+.steps li{counter-increment:s;position:relative;background:var(--surface);border:1px solid var(--line);padding:18px 18px 20px 66px}
+.steps li::before{
+  content:counter(s);position:absolute;left:20px;top:15px;font-stretch:125%;font-weight:800;font-size:28px;line-height:1.1;
+  background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent
+}
+.steps b{display:block;margin-bottom:4px;font-size:16px}
+.steps p{margin:0;color:var(--mute);font-size:14.5px}
+.steps .key{color:var(--text)}
+.sub2{margin:34px 0 12px;font-size:18px;font-weight:700}
+.ship{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));max-width:820px}
+.ship div{border:1px solid var(--line);background:var(--surface);padding:16px}
+.ship b{display:block}
+.ship p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.where{margin:14px 0 0;color:var(--mute)}
+.contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.contact .btn{padding:0 24px}
+.strip{margin:0 0 4px;padding:12px 14px;border:1px solid var(--line);background:var(--surface);color:var(--mute);font-size:13.5px}
+.strip a{color:var(--text)}
+.hero .links{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero .links .lnk{color:var(--mute);min-height:44px;display:inline-flex;align-items:center}
+.hero .links .lnk:hover{color:var(--text)}
+.ghost{min-height:42px;color:var(--mute);font-weight:500}
+
+/* ---------- grilla ---------- */
+.count{margin:22px 0 14px;color:var(--mute);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 3px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:1350px){.grid{grid-template-columns:repeat(5,1fr)}}
+.tile{display:flex;flex-direction:column;gap:8px;padding:0;background:none;border:0;text-align:left;cursor:pointer}
+.tile .ph{aspect-ratio:1/1;background:var(--surface);display:block;overflow:hidden}
+.tile img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .35s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile .nm{padding:0 8px;font-size:13.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tile .meta{padding:0 8px;font-size:12px;color:var(--mute);display:flex;gap:10px}
+.ph{position:relative}
+.wm{position:absolute;inset:0;background:url("brand/monograma-tile.png");background-size:120px 150px;opacity:0;pointer-events:none;transform:scale(1);transition:opacity .3s ease,transform .3s ease}
+.tile:hover .wm,.card:hover .wm,.pic:hover .wm{opacity:.28;transform:scale(1.04)}
+@media(hover:none){.wm{display:none}}
+@media(prefers-reduced-motion:reduce){.wm{transition:none}}
+.empty{padding:60px 0;text-align:center;color:var(--mute)}
+.empty .btn{display:inline-flex;margin-top:14px}
+#sentinel{height:1px}
+
+/* ---------- ficha ---------- */
+dialog{
+  position:fixed;border:0;padding:0;background:#08080a;color:var(--text);
+  width:min(1020px,100vw);max-width:100vw;height:100dvh;max-height:100dvh;overflow:auto;margin:auto;
+}
+@media(min-width:800px){dialog{width:min(1020px,96vw);height:auto;max-height:94dvh;border:1px solid var(--line)}}
+dialog::backdrop{background:rgba(0,0,0,.84)}
+.sheet{display:grid;grid-template-columns:1fr}
+@media(min-width:800px){.sheet{grid-template-columns:minmax(0,340px) minmax(0,1fr)}}
+.pic{position:relative;background:var(--surface);aspect-ratio:1/1;display:grid;place-items:center}
+.pic img{width:100%;height:100%;object-fit:contain}
+.info{padding:24px var(--pad) 28px;display:flex;flex-direction:column;gap:14px}
+@media(min-width:800px){.info{gap:10px;padding:16px 22px 18px}}
+.info h2{margin:0;font-size:clamp(20px,3.4vw,26px);font-weight:700;line-height:1.2}
+@media(min-width:800px){.info h2{font-size:22px}}
+.info .sub{color:var(--mute);font-size:14px;margin:0}
+.info .price{font-size:20px;font-weight:600}
+.info .price small{color:var(--mute);font-size:12px;margin-left:8px;font-weight:500}
+.cta{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.talles{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:-2px}
+.talles .tl{font-size:12.5px;color:var(--mute);margin-right:2px}
+.talles[hidden]{display:none}
+.tchip{min-width:42px;min-height:42px;padding:6px 14px;border:1px solid var(--line);border-radius:3px;background:var(--surface);color:var(--text);font-size:14px;cursor:pointer;font-weight:600}
+.tchip:hover{border-color:#dfe3e8}
+.tchip.on{background:#1db954;border-color:#1db954;color:#04130a;font-weight:700}
+.hint{font-size:12.5px;color:var(--mute);margin:0}
+.nav{display:flex;gap:8px;margin-top:auto;padding-top:10px}
+.nav .btn{flex:1;min-height:42px;font-weight:500;color:var(--mute)}
+.x{
+  position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;
+  background:rgba(0,0,0,.65);border:1px solid #3a3d44;font-size:22px;line-height:1;cursor:pointer;z-index:2;
+}
+
+footer{padding:34px var(--pad) 44px;border-top:1px solid var(--line);color:var(--mute);font-size:13px;display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
+footer a{color:var(--text)}
+.toast{
+  position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;
+  background:#e9ecef;color:#000;padding:12px 18px;border-radius:3px;font-size:14px;max-width:min(92vw,420px);
+  transition:opacity .2s,transform .2s;z-index:50;text-align:center
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.tools{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:22px 0 14px}
+.tools .count{margin:0}
+.sort{display:inline-flex;align-items:center;gap:8px;color:var(--mute);font-size:13px}
+.sort select{height:40px;padding:0 12px;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:3px;cursor:pointer}
+.sort select:focus{border-color:#59606a;outline:none}
+.brandlink{align-self:flex-start;color:var(--mute);font-size:13px;min-height:40px;display:inline-flex;align-items:center;text-decoration:none}
+.brandlink:hover{color:var(--text)}
+.brandlink[hidden]{display:none}
+
+/* ---------- conversión ---------- */
+.topbar{text-align:center;font-size:12.5px;letter-spacing:.04em;padding:9px 14px;background:var(--chrome);color:#000;font-weight:700}
+.hcta{min-height:42px;padding:0 16px;font-size:14px}
+@media(max-width:899px){.hcta{display:none}}
+.stats{margin:22px 0 0;color:var(--mute);font-size:13.5px;display:flex;gap:18px;flex-wrap:wrap}
+.stats b{color:var(--text);font-weight:700}
+.bene{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin:-6px 0 44px}
+@media(min-width:700px){.bene{grid-template-columns:repeat(4,1fr)}}
+.bene div{border:1px solid var(--line);background:var(--surface);padding:14px 16px}
+.bene b{display:block;font-size:14px}
+.bene p{margin:3px 0 0;color:var(--mute);font-size:12.5px;line-height:1.35}
+.dlv{display:flex;flex-wrap:wrap;gap:8px}
+.dlv span{font-size:12.5px;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:7px 10px}
+.dlv .go{background:#0d2a18;border-color:#1db954;color:#4ade80;font-weight:700}
+.faq{max-width:820px;display:grid;gap:8px}
+.faq details{border:1px solid var(--line);background:var(--surface)}
+.faq summary{cursor:pointer;padding:16px 18px;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:12px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-size:20px;color:var(--mute);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin:0;padding:0 18px 18px;color:var(--mute);font-size:14.5px;line-height:1.5}
+.faq a{color:var(--text)}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1.25fr;gap:8px;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:rgba(0,0,0,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+body.lock .mbar{display:none}
+@media(min-width:900px){.mbar{display:none}}
+@media(max-width:899px){body{padding-bottom:78px}}
+
+/* ---------- carrito / pedido ---------- */
+.cartbtn{position:relative;flex:none;width:42px;height:42px;border:1px solid var(--line);border-radius:3px;background:var(--surface);display:grid;place-items:center;cursor:pointer}
+.cartbtn:hover{border-color:#3a3d44}
+.cartbtn svg{width:20px;height:20px;display:block}
+.ct{position:absolute;top:-7px;right:-7px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:#25D366;color:#04130a;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.ct[hidden]{display:none}
+.btn.add{border-color:#4ade80;color:#4ade80;font-weight:700}
+.btn.add:hover{background:rgba(74,222,128,.08)}
+.btn.add.added{background:#0d2a18;border-color:#1db954;color:#4ade80}
+dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
+#cart .cinfo{padding:26px var(--pad) 30px;display:flex;flex-direction:column;gap:16px}
+#cart h2{margin:0;font-size:24px;font-weight:700}
+#cart .sub{margin:0;color:var(--mute)}
+.citems{display:flex;flex-direction:column;gap:10px;max-height:46vh;overflow:auto}
+.citem{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:var(--surface);padding:10px}
+.citem .cth{flex:none;width:56px;height:56px;background:#0a0a0c;display:grid;place-items:center;overflow:hidden}
+.citem img{max-width:100%;max-height:100%;object-fit:contain}
+.citem .ci{flex:1;min-width:0}
+.citem .cin{font-size:13.5px;line-height:1.3;font-weight:600}
+.citem .cim{font-size:12px;color:var(--mute);margin-top:2px}
+.citem input{width:100%;max-width:130px;height:32px;margin-top:6px;background:var(--bg);border:1px solid var(--line);border-radius:3px;color:var(--text);padding:0 8px;font-size:12.5px}
+.qty{flex:none;display:flex;align-items:center;gap:4px}
+.qty button{width:30px;height:30px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:3px;cursor:pointer;font-size:16px;line-height:1}
+.qty button:hover{border-color:#3a3d44}
+.qty b{min-width:24px;text-align:center;font-size:14px}
+.rm{flex:none;background:none;border:0;color:var(--mute);font-size:22px;line-height:1;cursor:pointer;padding:6px}
+.rm:hover{color:var(--text)}
+.ctotal{display:flex;justify-content:space-between;align-items:baseline;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+.ctotal b{color:var(--text);font-size:18px}
+.cprice{display:flex;justify-content:space-between;align-items:baseline;padding-top:8px;font-size:13px;color:var(--mute)}
+.cprice b{color:var(--text);font-size:16px}
+.cactions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cactions .btn{width:100%}
+.cactions .maincol{grid-column:1/-1}
+@media(max-width:480px){.citem{flex-wrap:wrap}.citem .ci{flex:1 1 100%;order:1}.citem .cth{order:0}.citem .qty{order:2}.citem .rm{order:3}}
+
+/* ---------- agregado rápido + relacionados ---------- */
+.tile{cursor:pointer}
+.tile:focus-visible{outline:2px solid #dfe3e8;outline-offset:2px}
+.qa{position:absolute;right:8px;bottom:8px;width:40px;height:40px;padding:0;border-radius:50%;border:1px solid var(--line);background:rgba(0,0,0,.72);color:#fff;display:grid;place-items:center;cursor:pointer;z-index:2}
+.qa:hover{background:#1db954;border-color:#1db954;color:#04130a}
+.qa.in{background:#1db954;border-color:#1db954;color:#04130a}
+.qa svg{width:18px;height:18px}
+.meta .bm{color:#cfd4da;font-weight:600}
+.more{display:flex;flex-direction:column;gap:10px}
+.relwrap{border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+.secl{margin:0 0 10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);display:flex;gap:8px;align-items:center}
+.relwrap .rail{padding:2px 0 6px}
+@media(max-width:799px){
+  .info{padding-bottom:112px}
+  .info .cta{position:sticky;bottom:0;margin:4px calc(-1 * var(--pad)) 0;padding:14px var(--pad) 10px;background:linear-gradient(180deg,rgba(8,8,10,.7),#08080a 34%);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);z-index:3}
+}
+@media(min-width:800px){
+  .info .cta{position:static;margin-top:2px;padding:0;flex-direction:row}
+  .info .cta .btn{flex:1;margin:0}
+  .more{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .more .hint{display:none}
+  .relwrap .rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;overflow:visible;padding:2px 0 6px}
+  .relwrap .rail .card{width:auto}
+  .nav{padding-top:4px}
+}
+@media(max-width:899px){.fab{display:none}}
+
+@media(prefers-reduced-motion:reduce){
+  .tile img,.cat img,.toast{transition:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  "name": "Supply BA",
+  "description": "Importación de ropa y zapatillas hype. Encargue y stock disponible.",
+  "url": "https://supplybaencargos.netlify.app/",
+  "image": "https://supplybaencargos.netlify.app/brand/og.png",
+  "logo": "https://supplybaencargos.netlify.app/brand/icon-512.png",
+  "telephone": "+5491144785658",
+  "address": {"@type": "PostalAddress", "addressLocality": "Lomas de Zamora", "addressRegion": "Buenos Aires", "addressCountry": "AR"},
+  "sameAs": ["https://www.instagram.com/supply_ba_/", "https://supplyba.com.ar"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "¿Cómo hago un encargue?", "acceptedAnswer": {"@type": "Answer", "text": "Elegís el producto, tocás Agregar al pedido y después Enviar pedido por WhatsApp. El mensaje ya incluye el nombre y el código de todo lo que sumaste."}},
+    {"@type": "Question", "name": "¿Cuánto tarda en llegar mi pedido?", "acceptedAnswer": {"@type": "Answer", "text": "El plazo habitual es de hasta 4 semanas. Si hay demoras (aduana, líneas de envío), te avisamos y hacemos seguimiento personalizado."}},
+    {"@type": "Question", "name": "¿Cómo se paga?", "acceptedAnswer": {"@type": "Answer", "text": "50% de seña al confirmar y 50% al llegar: en la entrega presencial o antes de despachar si es por envío."}},
+    {"@type": "Question", "name": "¿Hacen envíos a todo el país?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Correo Argentino, moto en el día o entrega presencial en Lomas de Zamora."}},
+    {"@type": "Question", "name": "¿Puedo ver el stock que tienen?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, la tienda con stock está en supplyba.com.ar y este catálogo incluye todo lo que se consigue por encargue."}}
+  ]
+}
+</script>
+</head>
+<body data-view="home">
+
+<div class="topbar">Envíos a todo el país · Encargues con seña del 50% · Respondemos por WhatsApp todos los días</div>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="#" id="home" aria-label="Supply BA, ir al inicio">
+      <img src="brand/wordmark.webp" width="96" height="54" alt="Supply BA">
+    </a>
+    <label class="search">
+      <span class="sr">Buscar</span>
+      <input type="search" id="q" placeholder="Buscar producto" autocomplete="off" enterkeyhint="search">
+    </label>
+    <a class="btn main hcta" id="hWa" href="#" target="_blank" rel="noopener">Encargar por WhatsApp</a>
+    <button class="cartbtn" id="cartBtn" type="button" aria-label="Ver mi pedido" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h12a1 1 0 0 1 1 1v1h2a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h2V3a1 1 0 0 1 1-1Zm0 4H4v14h16V6h-2v1H6V6Zm2-2v3h8V4H8Z"/></svg>
+      <span class="ct" id="cartBadge" hidden>0</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- ===== landing ===== -->
+  <div class="homeonly">
+    <section class="hero">
+      <h1>Elegí lo que te guste y pedilo <span class="chr">por mensaje.</span></h1>
+      <p>Ropa y zapatillas de las mejores marcas. No hay carrito: nos escribís por WhatsApp o Instagram y coordinamos.</p>
+      <div class="links"><a class="btn stock" href="https://supplyba.com.ar?utm_source=catalogo&utm_medium=hero&utm_campaign=ver_stock" target="_blank" rel="noopener">Ver stock disponible</a><a class="btn main" href="#ver=todo">Ver todo el catálogo</a><a class="lnk" href="#encargue">Cómo funciona el encargue</a></div>
+      <p class="stats" id="heroStats"></p>
+    </section>
+    <div class="bene">
+      <div><b>Seña del 50%</b><p>Seña al encargar y el saldo al recibirlo.</p></div>
+      <div><b>Llegada ~4 semanas</b><p>Plazo habitual de cada encargue.</p></div>
+      <div><b>Seguimiento personalizado</b><p>Te contamos el estado de tu pedido.</p></div>
+      <div><b>Envío a todo el país</b><p>Correo, moto en el día o entrega presencial.</p></div>
+    </div>
+    <h2 class="sec"><span aria-hidden="true">✦</span> Marcas</h2>
+    <div class="brandgrid" id="brandTiles"></div>
+    <h2 class="sec"><span aria-hidden="true">✦</span> Recién llegados</h2>
+    <div class="rail" id="featured"></div>
+    <h2 class="sec"><span aria-hidden="true">✦</span> Categorías</h2>
+    <div class="cats" id="tipoTiles"></div>
+
+    <section id="encargue" aria-labelledby="encTitle">
+      <h2 class="sec" id="encTitle"><span aria-hidden="true">✦</span> Cómo funciona el encargue</h2>
+      <p style="max-width:62ch;margin:0 0 18px;color:var(--mute)">Todos los productos se piden por encargue: los traemos especialmente para vos. <span class="key">Plazo estimado de llegada: habitualmente dentro de las 4 semanas.</span> Así es el proceso, paso a paso.</p>
+      <ol class="steps">
+        <li><b>Elegís y nos escribís</b><p>Encontrá lo que te guste en el catálogo y mandanos tu pedido por WhatsApp o Instagram. El botón de cada producto ya lleva el nombre y el código.</p></li>
+        <li><b>Pagás una seña del 50%</b><p>Una vez que recibimos tu orden, se abona el <span class="key">50% de seña</span>. Es el valor que pedimos para cubrir parte del costo y los gastos de envío del o los productos.</p></li>
+        <li><b>Seguimiento personalizado</b><p>En todo momento te mantenemos informado, de forma personalizada, sobre el estado de tu pedido.</p></li>
+        <li><b>Posibles demoras</b><p>El plazo habitual es de hasta 4 semanas, pero puede cambiar por tardanzas ajenas a nosotros, como aduanas o las líneas de envío. Si pasa, te avisamos.</p></li>
+        <li><b>Llega tu pedido y coordinamos</b><p>Cuando los productos arriban, coordinamos el envío o la entrega presencial.</p></li>
+        <li><b>Abonás el 50% restante</b><p>Si la entrega es presencial, lo abonás en el momento de la entrega. Si es por envío, lo abonás <span class="key">antes de que despachemos</span> el pedido.</p></li>
+      </ol>
+
+      <h3 class="sub2">Envíos y entregas</h3>
+      <div class="ship">
+        <div><b>Correo Argentino</b><p>Enviamos tu pedido por correo.</p></div>
+        <div><b>Moto en el día</b><p>Motomensajería en el día, por Uber Moto.</p></div>
+        <div><b>Entrega presencial</b><p>Nos encontramos y te lo entregamos en persona.</p></div>
+      </div>
+      <p class="where">✦ Estamos en Lomas de Zamora, Buenos Aires, Argentina.</p>
+      <div class="contact">
+        <a class="btn main" id="cWa" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        <a class="btn" id="cIg" href="#" target="_blank" rel="noopener">Escribirnos por Instagram</a>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faqTitle" style="scroll-margin-top:84px">
+      <h2 class="sec" id="faqTitle"><span aria-hidden="true">✦</span> Preguntas frecuentes</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Cómo hago un encargue?</summary>
+          <p>Elegís el producto, tocás “Agregar al pedido” y después “Enviar pedido por WhatsApp” (el mensaje ya incluye el nombre y el código de todo lo que sumaste). También podés pedir producto por producto desde su ficha.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto tarda en llegar mi pedido?</summary>
+          <p>El plazo habitual es de hasta 4 semanas. Puede haber demoras ajenas a nosotros (aduana, líneas de envío) y, si pasa, te avisamos y te hacemos seguimiento personalizado.</p>
+        </details>
+        <details>
+          <summary>¿Cómo se paga?</summary>
+          <p>Se abona el 50% de seña al confirmar el pedido y el 50% restante cuando llega: en la entrega presencial o antes de despachar si es por envío. El método de pago se coordina por WhatsApp.</p>
+        </details>
+        <details>
+          <summary>¿Hacen envíos a todo el país?</summary>
+          <p>Sí. Enviamos por Correo Argentino, moto en el día (Uber Moto) o entrega presencial en Lomas de Zamora.</p>
+        </details>
+        <details>
+          <summary>¿Puedo ver el stock que tienen?</summary>
+          <p>Sí, la tienda con stock disponible está en <a href="https://supplyba.com.ar?utm_source=catalogo&utm_medium=faq&utm_campaign=ver_stock" target="_blank" rel="noopener">supplyba.com.ar</a>, y este catálogo incluye además todo lo que se consigue por encargue.</p>
+        </details>
+        <details>
+          <summary>¿Cómo elijo el talle?</summary>
+          <p>Si tenés dudas, escribinos y te asesoramos según la prenda y las tablas de cada marca. En el pedido podés anotar el talle de cada producto y, si no, lo coordinamos por chat.</p>
+        </details>
+        <details>
+          <summary>¿Puedo pedir por Instagram?</summary>
+          <p>Claro. Escribinos a <a id="faqIg" href="#" target="_blank" rel="noopener"></a> y pegá el nombre y el código del producto que elegiste.</p>
+        </details>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== catálogo ===== -->
+  <div class="catonly">
+    <h1 class="sr">Catálogo Supply BA — ropa y zapatillas por encargue</h1>
+    <div class="rows" style="margin-top:18px">
+      <nav class="row" id="tipoRow" aria-label="Tipo de producto"></nav>
+      <nav class="row sm" id="brandRow" aria-label="Marcas"></nav>
+    </div>
+    <p class="strip">Todo se hace por encargue: seña del 50%, llegada habitual dentro de las 4 semanas y seguimiento personalizado. <a href="#encargue">Cómo funciona</a></p>
+    <div class="tools">
+      <p class="count" id="count" aria-live="polite"></p>
+      <label class="sort"><span>Ordenar</span>
+        <select id="sort" aria-label="Ordenar productos">
+          <option value="">Relevancia</option>
+          <option value="new">Novedades</option>
+          <option value="az">A → Z</option>
+        </select>
+      </label>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <p id="emptyMsg"></p>
+      <button class="btn" id="clear" type="button">Ver todo el catálogo</button>
+    </div>
+    <div id="sentinel"></div>
+  </div>
+</main>
+
+<footer>
+  <span>✦ Supply BA · Lomas de Zamora, Buenos Aires · <a href="https://supplyba.com.ar?utm_source=catalogo&utm_medium=pie&utm_campaign=ver_stock" target="_blank" rel="noopener">Ver stock</a> · <a href="#encargue">Cómo funciona el encargue</a></span>
+  <span><a id="fWa" href="#" target="_blank" rel="noopener">WhatsApp</a> · <a id="fIg" href="#" target="_blank" rel="noopener">Instagram</a></span>
+  <span><a id="fWaNum" href="#" target="_blank" rel="noopener"></a> · <a href="https://maps.google.com/?q=Lomas+de+Zamora,+Buenos+Aires" target="_blank" rel="noopener">Cómo llegar</a></span>
+</footer>
+
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<dialog id="dlg" aria-labelledby="dName">
+  <button class="x" id="close" type="button" aria-label="Cerrar">×</button>
+  <div class="sheet">
+    <div class="pic"><img id="dImg" alt=""><span class="wm" aria-hidden="true"></span></div>
+    <div class="info">
+      <h2 id="dName"></h2>
+      <p class="sub" id="dSub"></p>
+      <a class="brandlink" id="dBrand" href="#">Ver más de esta marca →</a>
+      <div class="price" id="dPrice" hidden></div>
+      <div class="talles" id="dTalles" hidden></div>
+      <div class="dlv">
+        <span class="go">Disponible por encargue</span>
+        <span>Seña 50%</span>
+        <span>Llegada ~4 semanas</span>
+        <span>Seguimiento</span>
+      </div>
+      <div class="cta">
+        <button class="btn add" id="dAdd" type="button">Agregar al pedido</button>
+        <a class="btn main" id="dWa" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      </div>
+      <div class="more">
+        <a class="btn" id="dIg" href="#" target="_blank" rel="noopener">Pedir por Instagram</a>
+        <a class="btn" id="dStock" href="https://supplyba.com.ar?utm_source=catalogo&utm_medium=ficha&utm_campaign=ver_stock" target="_blank" rel="noopener">Ver stock en la tienda</a>
+        <button class="btn ghost" id="dShare" type="button">Compartir este producto</button>
+        <button class="btn ghost" id="dCopy" type="button">Copiar nombre y código</button>
+        <p class="hint">Encargue: seña del 50% y llegada habitual dentro de las 4 semanas. <a href="#encargue" id="dHow">Cómo funciona</a></p>
+      </div>
+      <div class="relwrap" id="dRelWrap" hidden>
+        <div class="secl"><span aria-hidden="true">✦</span> Te puede gustar</div>
+        <div class="rail" id="dRel"></div>
+      </div>
+      <div class="nav">
+        <button class="btn" id="prev" type="button">‹ Anterior</button>
+        <button class="btn" id="next" type="button">Siguiente ›</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+<div class="mbar">
+  <a class="btn stock" href="https://supplyba.com.ar?utm_source=catalogo&utm_medium=barra&utm_campaign=ver_stock" target="_blank" rel="noopener">Ver stock</a>
+  <a class="btn main" id="mWa" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+</div>
+<dialog id="cart" aria-labelledby="cartTitle">
+  <button class="x" id="cartClose" type="button" aria-label="Cerrar">×</button>
+  <div class="cinfo">
+    <h2 id="cartTitle">Tu pedido</h2>
+    <p class="sub" id="cartEmpty">Todavía no agregaste productos. Abrí cualquier producto y tocá “Agregar al pedido”.</p>
+    <div class="citems" id="citems"></div>
+    <div class="ctotal"><span>Productos</span><b id="cCount">0</b></div>
+    <div class="cprice" id="cPrice" hidden><span>Total estimado</span><b id="cPriceV"></b></div>
+    <div class="cactions">
+      <a class="btn main maincol" id="cartWa" href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+      <button class="btn" id="cCopy" type="button">Copiar pedido</button>
+      <button class="btn ghost" id="cClear" type="button">Vaciar</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(async () => {
+  const $ = (s) => document.querySelector(s);
+  const PAGE = 48;
+  const norm = (s) => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const track = (name, props) => { try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: name }, props)); } catch {} };
+  const fmtArs = (v) => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(v);
+  const _siz = ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
+  function expandTalles(r) {
+    if (!r) return null;
+    const n = r.match(/^(\d+)\s*-\s*(\d+)$/);
+    if (n) {
+      const a = +n[1], b = +n[2];
+      if (a >= b || b - a > 40) return null;
+      const o = []; for (let i = a; i <= b; i++) o.push(String(i)); return o;
+    }
+    const l = r.match(/^(XS|S|M|L|XL|2XL|3XL|4XL)\s*-\s*(XS|S|M|L|XL|2XL|3XL|4XL)$/);
+    if (l) {
+      const a = _siz.indexOf(l[1]), b = _siz.indexOf(l[2]);
+      if (a < 0 || b < 0 || a > b) return null;
+      return _siz.slice(a, b + 1);
+    }
+    return null;
+  }
+
+  let cfg, data;
+  try {
+    [cfg, data] = await Promise.all([
+      fetch('config.json').then((r) => r.json()),
+      fetch('data/products.json').then((r) => r.json()),
+    ]);
+  } catch {
+    $('.hero h1').textContent = 'No se pudo cargar el catálogo.';
+    $('.hero p').textContent = 'Corré el script de armado y abrí el sitio desde un servidor (ver README).';
+    return;;
+  }
+
+  data.tipos = data.tipos || [];
+  data.products.forEach((p) => { p._s = norm([p.name, p.brand, p.category, p.tipo || '', p.num ?? '', p.talles ?? ''].join(' ')); });
+  const usdCfg = cfg.precios || {};
+  let cotiz = { val: Number(usdCfg.usdCotizacion) || 0 };
+  async function asegurarCotizacion() {
+    try {
+      const c = localStorage.getItem('supplyba_usd_v1');
+      if (c) { const o = JSON.parse(c); if (o.val > 0 && Date.now() - o.ts < 6 * 36e5) { cotiz.val = +o.val; return; } }
+    } catch {}
+    try {
+      const r = await fetch('https://dolarapi.com/v1/dolares/tarjeta');
+      const j = await r.json(); const v = +j.venta;
+      if (v > 0) { cotiz.val = v; try { localStorage.setItem('supplyba_usd_v1', JSON.stringify({ val: v, ts: Date.now() })); } catch {} }
+    } catch {}
+  }
+  const money = cfg.mostrarPrecios
+    ? new Intl.NumberFormat('es-AR', { style: 'currency', currency: cfg.moneda || 'ARS', maximumFractionDigits: 0 })
+    : null;
+  const usdOn = () => !!(usdCfg.mostrar && cotiz.val > 0);
+  const arsOf = (usd) => { const r = Number(usdCfg.redondeo) || 1000; return fmtArs(Math.ceil((usd * cotiz.val) / r) * r); };
+  const priceSpan = (p) => {
+    if (usdOn() && p.usd != null && p.usd > 0) return `<span>${arsOf(p.usd)}<small>US$ ${p.usd}</small></span>`;
+    if (money && p.price) return `<span>${money.format(p.price)}</span>`;
+    return '';
+  };
+  if (usdCfg.mostrar) await asegurarCotizacion();
+  if (cfg.logoFondo) document.documentElement.style.setProperty('--logo-bg', cfg.logoFondo);
+
+  const tipoBySlug = new Map(data.tipos.map((t) => [t.slug, t]));
+  const brandBySlug = new Map(data.brands.map((b) => [b.slug, b]));
+  const prodById = new Map(data.products.map((x) => [x.id, x]));
+  const slugOf = (s) => norm(s).replace(/&/g, ' y ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  data.products.forEach((p) => { p.tipoSlug = slugOf(p.tipo || 'otros'); });
+
+  const state = { brand: '', tipo: '', q: '', ver: '', p: '', goto: '', sort: '' };
+  let list = [], shown = 0, cur = -1, selTalle = '';
+
+  /* ---------- contacto ---------- */
+  const waBase = `https://wa.me/${cfg.whatsapp}`;
+  const igUrl = `https://ig.me/m/${cfg.instagram}`;
+  $('#fWa').href = waBase;
+  $('#fIg').href = `https://instagram.com/${cfg.instagram}`;
+  $('#cWa').href = `${waBase}?text=${encodeURIComponent('Hola Supply BA! Quiero hacer un encargue.')}`;
+  $('#cIg').href = igUrl;
+  $('#fab').href = `${waBase}?text=${encodeURIComponent('Hola Supply BA! Quiero hacer un encargue.')}`;
+  const message = (p) => cfg.mensaje
+    .replace('{producto}', p.name)
+    .replace('{codigo}', p.num != null ? `#${p.num}` : p.id)
+    .replace('{marca}', p.brand);
+
+  $('#hWa').href = $('#fab').href;
+  $('#mWa').href = $('#fab').href;
+  const _wa = String(cfg.whatsapp);
+  const fwn = $('#fWaNum'); fwn.href = waBase; fwn.textContent = `+${_wa.slice(0,2)} ${_wa.slice(2,3)} ${_wa.slice(3,5)} ${_wa.slice(5,9)}-${_wa.slice(9)}`;
+  const fig = $('#faqIg'); fig.textContent = `@${cfg.instagram}`; fig.href = igUrl;
+
+  /* ---------- pedido (carrito) ---------- */
+  const cartEls = { rw: $('#citems'), empty: $('#cartEmpty'), badge: $('#cartBadge'), cnt: $('#cCount'), dl: $('#cart'), wa: $('#cartWa') };
+  let cart = [];
+  try { cart = JSON.parse(localStorage.getItem('supplyba_cart_v1')) || []; } catch {}
+  cart = cart.filter((e) => prodById.has(e.id));
+
+  const totalQty = () => cart.reduce((s, e) => s + (e.q || 1), 0);
+  const cartEntry = (id) => cart.find((e) => e.id === id);
+  const saveCart = () => localStorage.setItem('supplyba_cart_v1', JSON.stringify(cart));
+  const badgeQty = () => {
+    const n = totalQty();
+    cartEls.badge.hidden = n === 0;
+    if (n) cartEls.badge.textContent = n;
+    cartEls.cnt.textContent = String(n);
+  };
+  function addToCart(id, talle) {
+    const e = cartEntry(id);
+    if (e) { e.q = (e.q || 1) + 1; if (talle) e.talle = talle; }
+    else cart.push({ id, q: 1, talle: talle || '' });
+    saveCart(); badgeQty();
+    const p = prodById.get(id);
+    track('add_to_cart', { product: id, categoria: p?.tipo, marca: p?.brand });
+    toast(`Agregado a tu pedido: ${p?.name || ''}`);
+  }
+  function cartText() {
+    const lines = []; let n = 0;
+    cart.forEach((e) => {
+      const p = prodById.get(e.id); if (!p) return;
+      n += e.q || 1;
+      let l = `${n}. ${p.name}` + (p.num != null ? ` (código ${p.num})` : '') + (p.brand ? ` · ${p.brand}` : '');
+      if (e.talle) l += ` · Talle ${e.talle}`;
+      if ((e.q || 1) > 1) l += ` · ${e.q} unidades`;
+      if (usdOn() && p.usd != null && p.usd > 0) l += ` · ${arsOf(p.usd)}`;
+      lines.push(l);
+    });
+    const head = `Hola Supply BA! Quiero hacer un encargue con estos ${n} ${n === 1 ? 'producto' : 'productos'}:\n\n` + lines.join('\n');
+    if (usdOn() && cart.some((e) => { const p = prodById.get(e.id); return p && p.usd != null && p.usd > 0; })) {
+      const t = cart.reduce((s, e) => { const p = prodById.get(e.id); return s + (p ? (p.usd || 0) * (e.q || 1) : 0); }, 0);
+      return `${head}\n\nTotal estimado: ${arsOf(t)}`;
+    }
+    return head;
+  }
+  function renderCart() {
+    cartEls.empty.hidden = cart.length > 0;
+    cartEls.cnt.textContent = String(totalQty());
+    const cpr = $('#cPrice');
+    if (cpr) {
+      const totals = cart.map((e) => { const p = prodById.get(e.id); return p && p.usd != null && p.usd > 0 ? p.usd * (e.q || 1) : 0; });
+      const any = totals.some((v) => v > 0);
+      cpr.hidden = !(usdOn() && cart.length && any);
+      if (!cpr.hidden) $('#cPriceV').textContent = arsOf(totals.reduce((s, v) => s + v, 0));
+    }
+    cartEls.wa.href = `${waBase}?text=${encodeURIComponent(cartText())}`;
+    cartEls.rw.replaceChildren(...cart.map((e) => {
+      const p = prodById.get(e.id); if (!p) return null;
+      const row = document.createElement('div');
+      row.className = 'citem'; row.dataset.id = e.id;
+      row.innerHTML =
+        `<div class="cth"><img loading="lazy" decoding="async" src="${esc(p.thumb)}" alt=""></div>` +
+        `<div class="ci"><div class="cin">${esc(p.name)}</div>` +
+        `<div class="cim">${p.num != null ? `#${p.num}` : ''}${p.brand ? ` · ${esc(p.brand)}` : ''}</div>` +
+        `<input type="text" value="${esc(e.talle || '')}" placeholder="Talle (opcional)" aria-label="Talle de ${esc(p.name)}" maxlength="14"></div>` +
+        `<div class="qty"><button type="button" data-act="minus" aria-label="Quitar uno">–</button><b>${e.q || 1}</b><button type="button" data-act="plus" aria-label="Sumar uno">+</button></div>` +
+        `<button type="button" class="rm" data-act="rm" aria-label="Quitar del pedido">×</button>`;
+      return row;
+    }).filter(Boolean));
+  }
+  function syncAdd() {
+    const id = cur >= 0 ? list[cur]?.id : null;
+    const b = $('#dAdd'); if (!b) return;
+    const on = !!id && !!cartEntry(id);
+    b.textContent = selTalle
+      ? (on ? `✓ En el pedido (${selTalle})` : `Agregar al pedido (${selTalle})`)
+      : (on ? '✓ En el pedido' : 'Agregar al pedido');
+    b.classList.toggle('added', on);
+  }
+  function setSelTalle(v) {
+    selTalle = v;
+    $('#dTalles').querySelectorAll('.tchip').forEach((c) => c.classList.toggle('on', c.dataset.v === v));
+    syncAdd();
+  }
+  function openCart() {
+    if (dlg.open) dlg.close();
+    renderCart();
+    cartEls.dl.showModal();
+    document.body.classList.add('lock');
+    track('begin_checkout', { items: cart.length, qty: totalQty() });
+  }
+
+  /* ---------- navegación por hash ---------- */
+  const isHome = () => !(state.brand || state.tipo || state.q || state.ver || state.p);
+  function hashFor(s) {
+    const h = new URLSearchParams();
+    if (s.brand) h.set('marca', s.brand);
+    if (s.tipo) h.set('tipo', s.tipo);
+    if (s.q) h.set('q', s.q);
+    if (s.p) h.set('p', s.p);
+    if (s.sort) h.set('orden', s.sort);
+    if (!s.brand && !s.tipo && !s.q && !s.p && s.ver) h.set('ver', 'todo');
+    return h.toString();
+  }
+  function readHash() {
+    const h = new URLSearchParams(location.hash.slice(1));
+    state.brand = brandBySlug.has(h.get('marca')) ? h.get('marca') : '';
+    state.tipo = tipoBySlug.has(h.get('tipo')) ? h.get('tipo') : '';
+    state.q = h.get('q') || '';
+    state.ver = h.get('ver') || '';
+    state.p = prodById.has(h.get('p')) ? h.get('p') : '';
+    state.goto = h.has('encargue') ? 'encargue' : '';
+    state.sort = h.get('orden') || '';
+    $('#q').value = state.q;
+    $('#sort').value = state.sort;
+  }
+  function go(patch, replace) {
+    Object.assign(state, patch);
+    const s = hashFor(state);
+    if (replace) {
+      history.replaceState(null, '', s ? '#' + s : location.pathname + location.search);
+      render();
+    } else if (('#' + s) === location.hash || (!s && !location.hash)) {
+      render();
+    } else {
+      location.hash = s;
+    }
+  }
+
+  /* ---------- landing ---------- */
+  function renderHome() {
+    const hs = $('#heroStats');
+    if (hs) hs.innerHTML = `<b>${data.products.length.toLocaleString('es-AR')}</b> productos · <b>${data.brands.length}</b> marcas · <b>${data.tipos.length}</b> secciones`;
+    const countOf = (slug) => data.products.reduce((n, p) => n + (p.brandSlug === slug ? 1 : 0), 0);
+    const brandList = [...data.brands].sort((a, b) => countOf(b.slug) - countOf(a.slug) || a.name.localeCompare(b.name, 'es'));
+    $('#brandTiles').replaceChildren(...brandList.map((b) => {
+      const a = document.createElement('a');
+      a.className = 'bt has-logo'; a.href = `#marca=${b.slug}`; a.title = b.name;
+      a.innerHTML = `<img loading="lazy" decoding="async" src="${esc(b.logo || `logos/${b.slug}.webp`)}" alt="${esc(b.name)}">`;
+      // si no hay logo para esta marca, el botón muestra el nombre en texto
+      a.firstChild.addEventListener('error', () => {
+        a.classList.remove('has-logo');
+        a.innerHTML = `<span>${esc(b.name)}</span>`;
+      }, { once: true });
+      return a;
+    }));
+    $('#featured').replaceChildren(...interleave([...data.products].sort((a, b) => (b.num ?? 0) - (a.num ?? 0))).slice(0, 16).map((p) => {
+      const a = document.createElement('a');
+      a.className = 'card'; a.href = `#p=${p.id}`;
+      a.innerHTML = `<span class="ph"><img loading="lazy" decoding="async" src="${esc(p.thumb)}" alt="${esc(p.name)}"><span class="wm" aria-hidden="true"></span></span>` +
+        `<span class="nm">${esc(p.name)}</span><span class="bm">${esc(p.brand)}</span>`;
+      return a;
+    }));
+    $('#tipoTiles').replaceChildren(...data.tipos.map((t) => {
+      const a = document.createElement('a');
+      a.className = 'cat'; a.href = `#tipo=${t.slug}`;
+      a.innerHTML = `<img loading="lazy" decoding="async" src="${esc(t.cover)}" alt=""><span class="lb"><b>${esc(t.name)}</b><small>${t.count}</small></span>`;
+      return a;
+    }));
+  }
+
+  /* ---------- chips ---------- */
+  function chip(label, count, pressed, onClick) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip';
+    b.setAttribute('aria-pressed', pressed);
+    b.innerHTML = `${esc(label)}${count != null ? ` <small>${count}</small>` : ''}`;
+    b.addEventListener('click', onClick);
+    return b;
+  }
+  function renderChips() {
+    const byBrand = data.products.filter((p) => !state.brand || p.brandSlug === state.brand);
+    const byTipo = data.products.filter((p) => !state.tipo || p.tipoSlug === state.tipo);
+    const tCount = new Map(), bCount = new Map();
+    byBrand.forEach((p) => tCount.set(p.tipoSlug, (tCount.get(p.tipoSlug) || 0) + 1));
+    byTipo.forEach((p) => bCount.set(p.brandSlug, (bCount.get(p.brandSlug) || 0) + 1));
+
+    const tr = $('#tipoRow'); tr.replaceChildren();
+    const lab = (t) => { const s = document.createElement('span'); s.className = 'rowlab'; s.textContent = t; return s; };
+    tr.append(lab('Tipo'), chip('Todo', byBrand.length, !state.tipo, () => go({ tipo: '', ver: 'todo' })));
+    data.tipos.filter((t) => tCount.has(t.slug)).forEach((t) =>
+      tr.append(chip(t.name, tCount.get(t.slug), state.tipo === t.slug, () => go({ tipo: t.slug, ver: 'todo' }))));
+
+    const br = $('#brandRow'); br.replaceChildren();
+    br.append(lab('Marca'), chip('Todas', byTipo.length, !state.brand, () => go({ brand: '', ver: 'todo' })));
+    data.brands.filter((b) => bCount.has(b.slug)).forEach((b) =>
+      br.append(chip(b.name, bCount.get(b.slug), state.brand === b.slug, () => go({ brand: b.slug, ver: 'todo' }))));
+  }
+
+  /* ---------- lista ---------- */
+  function interleave(items) {
+    const groups = new Map();
+    items.forEach((p) => { if (!groups.has(p.brandSlug)) groups.set(p.brandSlug, []); groups.get(p.brandSlug).push(p); });
+    const arr = [...groups.values()], out = [];
+    for (let i = 0; out.length < items.length; i++) arr.forEach((g) => { if (g[i]) out.push(g[i]); });
+    return out;
+  }
+  function filter() {
+    const tokens = norm(state.q).split(/\s+/).filter(Boolean);
+    let items = data.products.filter((p) =>
+      (!state.brand || p.brandSlug === state.brand) &&
+      (!state.tipo || p.tipoSlug === state.tipo) &&
+      tokens.every((t) => p._s.includes(t)));
+    if (state.sort === 'new') {
+      items = [...items].sort((a, b) => (b.num ?? 0) - (a.num ?? 0) || a.name.localeCompare(b.name, 'es'));
+    } else if (state.sort === 'az') {
+      items = [...items].sort((a, b) => a.name.localeCompare(b.name, 'es'));
+    } else if (!state.brand) {
+      items = interleave(items);
+    }
+    return items;
+  }
+  function tile(p, i) {
+    const d = document.createElement('div');
+    d.className = 'tile'; d.dataset.i = i; d.setAttribute('role', 'button'); d.setAttribute('tabindex', '0');
+    const inCart = !!cartEntry(p.id);
+    d.innerHTML =
+      `<span class="ph"><img loading="lazy" decoding="async" src="${esc(p.thumb)}" alt=""><span class="wm" aria-hidden="true"></span>` +
+      `<button type="button" class="qa${inCart ? ' in' : ''}" data-i="${i}" aria-label="${inCart ? `Tu pedido tiene ${esc(p.name)}. Tocalo para verlo.` : `Agregar ${esc(p.name)} a tu pedido`}"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h12a1 1 0 0 1 1 1v1h2a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h2V3a1 1 0 0 1 1-1Zm0 4H4v14h16V6h-2v1H6V6Zm2-2v3h8V4H8Z"/></svg></button></span>` +
+      `<span class="nm">${esc(p.name)}</span>` +
+      `<span class="meta"><span class="bm">${esc(p.brand)}</span>${p.num != null ? `<span>#${p.num}</span>` : ''}${priceSpan(p)}</span>`;
+    d.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+    });
+    return d;
+  }
+  function more() {
+    if (shown >= list.length) return;
+    const frag = document.createDocumentFragment();
+    list.slice(shown, shown + PAGE).forEach((p, k) => frag.append(tile(p, shown + k)));
+    shown = Math.min(shown + PAGE, list.length);
+    $('#grid').append(frag);
+  }
+  new IntersectionObserver((e) => { if (e[0].isIntersecting) more(); }, { rootMargin: '900px' }).observe($('#sentinel'));
+
+  function buildList() {
+    list = filter(); shown = 0;
+    $('#grid').replaceChildren();
+    const n = list.length;
+    $('#count').textContent = n ? `${n.toLocaleString('es-AR')} ${n === 1 ? 'producto' : 'productos'}` : '';
+    $('#empty').hidden = n > 0;
+    if (!n) $('#emptyMsg').textContent = state.q
+      ? `No encontramos nada para “${state.q}”. Probá con otra palabra o sacá los filtros.`
+      : 'No hay productos con esos filtros.';
+    more();
+  }
+
+  function render(keepScroll) {
+    const home = isHome();
+    document.body.dataset.view = home ? 'home' : 'cat';
+    const bits = [];
+    if (state.q) bits.push(`“${state.q}”`);
+    if (state.tipo && tipoBySlug.get(state.tipo)) bits.push(tipoBySlug.get(state.tipo).name);
+    if (state.brand && brandBySlug.get(state.brand)) bits.push(brandBySlug.get(state.brand).name);
+    document.title = bits.length
+      ? `${bits.join(' · ')} — Supply BA`
+      : 'Supply BA — Catálogo de ropa y zapatillas | Encargue y stock';
+    if (home) {
+      if (dlg.open) dlg.close();
+      if (state.goto === 'encargue') {
+        const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        requestAnimationFrame(() => $('#encargue').scrollIntoView({ behavior: calm ? 'auto' : 'smooth' }));
+        return;
+      }
+    } else {
+      renderChips();
+      buildList();
+      if (state.p) {
+        let idx = list.findIndex((x) => x.id === state.p);
+        if (idx < 0 && data.products.some((x) => x.id === state.p)) {
+          state.brand = state.tipo = state.q = ''; state.ver = 'todo';
+          renderChips(); buildList();
+          idx = list.findIndex((x) => x.id === state.p);
+        }
+        if (idx >= 0) {
+          while (shown <= idx + 6 && shown < list.length) more();
+          open(idx, true);
+        } else state.p = '';
+      } else if (dlg.open) dlg.close();
+    }
+    if (!keepScroll && !state.p) window.scrollTo({ top: 0 });
+  }
+
+  /* ---------- ficha ---------- */
+  const dlg = $('#dlg');
+  const toast = (t) => {
+    const el = $('#toast'); el.textContent = t; el.classList.add('on');
+    clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('on'), 3200);
+  };
+  function open(i, fromHash) {
+    const p = list[i]; if (!p) return;
+    cur = i;
+    track('select_item', { product: p.id, categoria: p.tipo, marca: p.brand });
+    if (!fromHash) { state.p = p.id; history.replaceState(null, '', '#' + hashFor(state)); }
+    $('#dName').textContent = p.name;
+    const kind = p.tipo && p.tipo !== 'Otros' ? p.tipo : (p.category !== 'General' ? p.category : '');
+    $('#dSub').textContent = [p.brand, kind, p.num != null ? `#${p.num}` : ''].filter(Boolean).join(' · ');
+    const bl = $('#dBrand');
+    if (p.brandSlug && brandBySlug.has(p.brandSlug)) {
+      bl.hidden = false; bl.textContent = `Ver más de ${p.brand} →`; bl.dataset.slug = p.brandSlug;
+    } else { bl.hidden = true; }
+    const pr = $('#dPrice'); pr.hidden = !priceSpan(p); if (!pr.hidden) pr.innerHTML = priceSpan(p);
+    const tl = $('#dTalles'); selTalle = '';
+    if (p.talles) {
+      tl.hidden = false; tl.replaceChildren();
+      const lab = document.createElement('span'); lab.className = 'tl'; lab.textContent = 'Talles:'; tl.append(lab);
+      const chips = expandTalles(p.talles);
+      if (chips) {
+        chips.forEach((v) => {
+          const b = document.createElement('button'); b.type = 'button'; b.className = 'tchip'; b.dataset.v = v; b.textContent = v;
+          b.addEventListener('click', () => setSelTalle(v));
+          tl.append(b);
+        });
+      } else {
+        const lab2 = document.createElement('span'); lab2.className = 'tl'; lab2.textContent = p.talles === 'DEPENDE PROVEEDOR' ? 'A confirmar por chat' : p.talles; tl.append(lab2);
+      }
+    } else tl.hidden = true;
+    const img = $('#dImg'); img.alt = p.name; img.src = p.thumb;
+    const full = new Image(); full.onload = () => { if (cur === i) img.src = p.img; }; full.src = p.img;
+    $('#dWa').href = `${waBase}?text=${encodeURIComponent(message(p))}`;
+    syncAdd();
+    const rw = $('#dRelWrap');
+    rw.hidden = true;
+    const rel = data.products.filter((x) => x.tipoSlug && x.tipoSlug === p.tipoSlug && x.id !== p.id);
+    if (rel.length) {
+      const pick = interleave(rel).slice(0, matchMedia('(min-width:800px)').matches ? 4 : 8);
+      $('#dRel').replaceChildren(...pick.map((q) => {
+        const a = document.createElement('a');
+        a.className = 'card'; a.href = `#p=${q.id}`;
+        a.innerHTML = `<span class="ph"><img loading="lazy" decoding="async" src="${esc(q.thumb)}" alt="${esc(q.name)}"></span><span class="nm">${esc(q.name)}</span><span class="bm">${esc(q.brand)}</span>`;
+        return a;
+      }));
+      rw.hidden = false;
+    }
+    $('#dIg').href = igUrl;
+    $('#prev').disabled = i <= 0; $('#next').disabled = i >= list.length - 1;
+    if (!dlg.open) { dlg.showModal(); document.body.classList.add('lock'); }
+    dlg.scrollTop = 0;
+    if (i + 1 >= shown - 6) more();
+  }
+  $('#dIg').addEventListener('click', () => {
+    const p = list[cur]; if (!p) return;
+    navigator.clipboard?.writeText(message(p)).then(
+      () => toast('Copiamos el pedido. Pegalo en el chat de Instagram.'),
+      () => toast('Abrí el chat y escribinos el nombre del producto.'));
+  });
+  $('#dStock').addEventListener('click', () => {
+    const p = list[cur]; if (p) track('ver_stock', { product: p.id });
+  });
+  $('#grid').addEventListener('click', (e) => {
+    if (e.target.closest('.qa')) {
+      const t = e.target.closest('.qa'); const p = list[+t.dataset.i]; if (!p) return;
+      if (cartEntry(p.id)) openCart(); else addToCart(p.id);
+      return;
+    }
+    const t = e.target.closest('.tile'); if (t) open(+t.dataset.i);
+  });
+  $('#close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', () => {
+    if (!$('#cart').open) document.body.classList.remove('lock'); cur = -1;
+    if (state.p) {
+      state.p = '';
+      if (new URLSearchParams(location.hash.slice(1)).has('p')) {
+        const s = hashFor(state);
+        history.replaceState(null, '', s ? '#' + s : location.pathname + location.search);
+      }
+    }
+  });
+  $('#dHow').addEventListener('click', (e) => { e.preventDefault(); dlg.close(); location.hash = 'encargue'; });
+  $('#cartClose').addEventListener('click', () => $('#cart').close());
+  $('#cart').addEventListener('click', (e) => { if (e.target === $('#cart')) $('#cart').close(); });
+  $('#cart').addEventListener('close', () => { if (!dlg.open) document.body.classList.remove('lock'); });
+  $('#cartBtn').addEventListener('click', openCart);
+  $('#dAdd').addEventListener('click', () => {
+    const id = cur >= 0 ? list[cur]?.id : null;
+    if (!id) return;
+    const was = cartEntry(id);
+    addToCart(id, selTalle || undefined);
+    if (was) openCart(); else syncAdd();
+  });
+  $('#citems').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act]'); if (!b) return;
+    const row = e.target.closest('.citem'); if (!row) return;
+    const en = cartEntry(row.dataset.id); if (!en) return;
+    if (b.dataset.act === 'rm') cart = cart.filter((x) => x.id !== en.id);
+    else if (b.dataset.act === 'plus') en.q = (en.q || 1) + 1;
+    else { en.q = (en.q || 1) - 1; if (en.q < 1) cart = cart.filter((x) => x.id !== en.id); }
+    saveCart(); renderCart(); badgeQty(); syncAdd();
+  });
+  $('#citems').addEventListener('input', (e) => {
+    const row = e.target.closest('.citem'); const inp = e.target.closest('input');
+    if (!row || !inp) return;
+    const en = cart.find((x) => x.id === row.dataset.id); if (!en) return;
+    en.talle = inp.value; saveCart();
+  });
+  $('#cartWa').addEventListener('click', (e) => {
+    if (!cart.length) { e.preventDefault(); toast('Tu pedido está vacío. Agregá productos desde el catálogo.'); }
+  });
+  $('#cCopy').addEventListener('click', () => {
+    if (!cart.length) { toast('Tu pedido está vacío.'); return; }
+    navigator.clipboard?.writeText(cartText()).then(
+      () => toast('Copiamos tu pedido. Pegalo donde quieras.'),
+      () => toast('No se pudo copiar.'));
+  });
+  $('#cClear').addEventListener('click', () => {
+    if (!cart.length) return;
+    cart = []; saveCart(); renderCart(); badgeQty(); syncAdd();
+    toast('Vaciaste tu pedido.');
+  });
+  $('#dShare').addEventListener('click', async () => {
+    const p = list[cur]; if (!p) return;
+    track('share', { product: p.id });
+    const url = location.href;
+    try {
+      if (navigator.share) await navigator.share({ title: `${p.name} — Supply BA`, text: p.name, url });
+      else { await navigator.clipboard.writeText(`${p.name}\n${url}`); toast('Link copiado.'); }
+    } catch {}
+  });
+  $('#dCopy').addEventListener('click', () => {
+    const p = list[cur]; if (!p) return;
+    const txt = `${p.name}${p.num != null ? ` (#${p.num})` : ''}`;
+    navigator.clipboard?.writeText(txt).then(
+      () => toast('Copiado: ' + txt),
+      () => toast('No se pudo copiar.'));
+  });
+  $('#dBrand').addEventListener('click', (e) => {
+    e.preventDefault();
+    const slug = $('#dBrand').dataset.slug;
+    if (slug) go({ brand: slug, tipo: '', q: '', p: '', ver: 'todo' });
+  });
+  $('#prev').addEventListener('click', () => open(cur - 1));
+  $('#next').addEventListener('click', () => open(cur + 1));
+  document.addEventListener('keydown', (e) => {
+    if (!dlg.open) return;
+    if (e.key === 'ArrowLeft') open(cur - 1);
+    if (e.key === 'ArrowRight') open(cur + 1);
+  });
+
+  /* ---------- búsqueda e inicio ---------- */
+  let t;
+  $('#q').addEventListener('input', (e) => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      const q = e.target.value.trim();
+      go(q ? { q, brand: '', tipo: '', ver: 'todo' } : { q: '' }, true);
+    }, 180);
+  });
+  const reset = (e) => {
+    e?.preventDefault();
+    $('#q').value = '';
+    go({ brand: '', tipo: '', q: '', ver: '' });
+  };
+  $('#home').addEventListener('click', reset);
+  $('#clear').addEventListener('click', () => { $('#q').value = ''; go({ brand: '', tipo: '', q: '', ver: 'todo' }); });
+  $('#sort').addEventListener('change', (e) => go({ sort: e.target.value, ver: 'todo' }, true));
+  window.addEventListener('hashchange', () => { readHash(); render(); });
+
+  renderHome();
+  readHash();
+  render(true);
+  renderCart();
+  badgeQty();
+  syncAdd();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "supplyba-catalogo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs ./Catalogo",
+    "build:otro": "node tools/build.mjs",
+    "dev": "npx serve site"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

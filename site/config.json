@@ -1,0 +1,14 @@
+{
+  "nombre": "Supply BA",
+  "whatsapp": "5491144785658",
+  "instagram": "supply_ba_",
+  "mostrarPrecios": false,
+  "moneda": "ARS",
+  "precios": {
+    "mostrar": false,
+    "usdCotizacion": 0,
+    "redondeo": 1000
+  },
+  "mensaje": "Hola Supply BA! Quiero pedir: {producto} (código {codigo}, marca {marca}). ¿Está disponible?",
+  "logoFondo": "#0c0c0f"
+}

@@ -1,0 +1,9 @@
+# Carpeta fuente de fotos (se procesa en local con tools/build.mjs)
+Catalogo/
+
+# Dependencias y config local de opencode
+node_modules/
+.opencode/
+
+# Logs
+*.log

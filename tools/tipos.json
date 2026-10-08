@@ -1,0 +1,22 @@
+{
+  "_ayuda": "orden = cómo se muestran los tipos en la web (debe cubrir todos los tipos que ya existen en el catálogo para que un rebuild no los borre). reglas = se prueban en este orden y gana la primera que coincide (primero con el nombre de la carpeta, después con el nombre del producto). Agregá o sacá palabras libremente.",
+  "orden": ["Remeras", "Buzos", "Camperas", "Pantalones", "Shorts", "Zapatillas", "Gorras", "Beanies", "Medias", "Ropa interior", "Conjuntos", "Mochilas", "Riñoneras/Bandoleras", "Bolsos", "Accesorios", "Faldas", "Otros"],
+  "reglas": [
+    { "nombre": "Zapatillas", "palabras": ["sneak", "sneaker", "shoe", "zapatilla", "zapa", "boot", "bota", "slide", "ojota", "runner", "dunk", "jordan", "air force", "air max", "yeezy", "croc", "clog", "calzado", "tenis"] },
+    { "nombre": "Ropa interior", "palabras": ["boxer", "underwear", "ropa interior", "calzoncillo", "bombacha", "bra"] },
+    { "nombre": "Faldas", "palabras": ["falda", "skirt"] },
+    { "nombre": "Beanies", "palabras": ["beanie", "gorro", "gorrito", "winter hat"] },
+    { "nombre": "Gorras", "palabras": ["cap", "gorra", "hat", "bucket", "trucker", "visera", "snapback", "dad cap"] },
+    { "nombre": "Medias", "palabras": ["sock", "media", "soquete", "calcetin", "calcetines", "crews"] },
+    { "nombre": "Mochilas", "palabras": ["mochila", "backpack", "back pack", "rucksack"] },
+    { "nombre": "Riñoneras/Bandoleras", "palabras": ["rinonera", "riñonera", "fanny", "bandolera", "crossbody", "sling", "waist bag", "belt bag", "body bag", "pouch", "chest bag"] },
+    { "nombre": "Bolsos", "palabras": ["bolso", "bag", "tote", "duffel", "handbag", "shoulder bag", "travel bag", "hobo", "cartera bolso"] },
+    { "nombre": "Conjuntos", "palabras": ["conjunto", "tracksuit", "sweatsuit", "co-ord", "co ord", "matching set", "outfit", "jogset", "two piece", "2 piece", "pijama"] },
+    { "nombre": "Camperas", "palabras": ["jacket", "campera", "puffer", "coat", "windbreaker", "parka", "vest", "chaleco", "varsity", "bomber", "anorak", "rompeviento", "shell", "track top", "ma 1", "jkt"] },
+    { "nombre": "Shorts", "palabras": ["short", "bermuda", "trunk", "swim", "sweatshort", "jorts", "pantalon corto"] },
+    { "nombre": "Pantalones", "palabras": ["pant", "pantalon", "pantalones", "jean", "denim", "cargo", "jogger", "jogging", "sweatpant", "trouser", "legging", "chupin", "velour", "bd", "track pant"] },
+    { "nombre": "Buzos", "palabras": ["hoodie", "hood", "hoody", "buzo", "sweatshirt", "sweater", "crewneck", "crew neck", "fullzip", "full zip", "zip up", "half zip", "quarter zip", "1 4 zip", "zip top", "fleece", "polar", "pullover", "knit", "cardigan", "canguro"] },
+    { "nombre": "Remeras", "palabras": ["tee", "t shirt", "tshirt", "shirt", "remera", "polo", "camiseta", "jersey", "tank", "tanktop", "musculosa", "camisa", "longsleeve", "long sleeve", "longsleve", "rugby", "compression"] },
+    { "nombre": "Accesorios", "palabras": ["wallet", "billetera", "belt", "cinturon", "cinto", "glasses", "eyeglass", "shades", "anteojo", "lente", "sunglass", "ring", "anillo", "chain", "cadena", "pulsera", "bracelet", "necklace", "collar", "keychain", "llavero", "scarf", "scarfe", "scarves", "bufanda", "guante", "glove", "pin", "accesorio", "perfume", "case", "funda", "bolsita", "sticker", "balaclava", "skully"] }
+  ]
+}
