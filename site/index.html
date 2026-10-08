@@ -71,6 +71,42 @@ a{color:inherit}
 }
 .search input::placeholder{color:var(--mute)}
 .search input:focus{border-color:#59606a;outline:none}
+.nav{display:flex;align-items:stretch;gap:6px}
+.dd{position:relative}
+.ddb{
+  min-height:42px;padding:0 14px;display:inline-flex;align-items:center;gap:6px;
+  background:transparent;border:1px solid transparent;border-radius:3px;
+  color:var(--mute);font:inherit;font-size:14.5px;font-weight:500;cursor:pointer;white-space:nowrap;
+}
+.ddb:hover{color:var(--text);border-color:var(--line);background:var(--surface)}
+.ddb[aria-expanded="true"]{color:var(--text);border-color:var(--line);background:var(--surface)}
+.ddb .car{font-size:10px;opacity:.7;transition:transform .2s}
+.ddb[aria-expanded="true"] .car{transform:rotate(180deg)}
+.ddm{
+  position:absolute;top:calc(100% + 8px);left:0;min-width:240px;max-height:min(62vh,420px);overflow:auto;
+  display:none;flex-direction:column;padding:6px;gap:2px;
+  background:#17181c;border:1px solid #2c2e34;border-radius:4px;box-shadow:0 14px 40px rgba(0,0,0,.5);z-index:50;
+}
+.dd.open .ddm{display:flex}
+.ddm a{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 11px;
+  border-radius:3px;color:var(--text);text-decoration:none;font-size:14px;
+}
+.ddm a:hover{background:#26282e}
+.ddm a small{color:var(--mute);font-size:12px}
+.ddm a.on{background:var(--chrome);color:#000;font-weight:600}
+.ddm a.on small{color:rgba(0,0,0,.6)}
+.ddc{
+  min-height:42px;padding:0 10px;display:inline-flex;align-items:center;
+  color:var(--mute);text-decoration:none;font-size:14.5px;font-weight:500;border-radius:3px;white-space:nowrap;
+}
+.ddc:hover{color:var(--text);background:var(--surface)}
+@media(max-width:899px){
+  .bar{flex-wrap:wrap;row-gap:10px}
+  .nav{order:3;flex:1 0 100%;display:flex;gap:6px}
+  .ddb,.ddc{min-height:36px;padding:0 12px;font-size:13.5px}
+  .ddm{min-width:200px;max-height:min(52vh,380px)}
+}
 
 /* ---------- botones / chips ---------- */
 .btn{
@@ -120,12 +156,9 @@ main{padding:0 var(--pad) 60px;max-width:1500px;margin:0 auto}
 }
 .cat b{font-stretch:125%;font-weight:800;font-size:clamp(15px,2.6vw,21px);letter-spacing:.01em}
 .cat small{color:#b9bec6;font-size:12.5px}
-.brandgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-@media(min-width:560px){.brandgrid{grid-template-columns:repeat(4,1fr)}}
-@media(min-width:800px){.brandgrid{grid-template-columns:repeat(6,1fr)}}
-@media(min-width:1100px){.brandgrid{grid-template-columns:repeat(8,1fr)}}
+.brandgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .bt{
-  aspect-ratio:1/1;display:grid;place-items:center;padding:16%;
+  flex:0 0 clamp(104px,13vw,150px);aspect-ratio:1/1;display:grid;place-items:center;padding:16%;
   background:var(--logo-bg);border:1px solid var(--line);border-radius:3px;text-decoration:none;
   transition:border-color .2s
 }
@@ -137,6 +170,17 @@ main{padding:0 var(--pad) 60px;max-width:1500px;margin:0 auto}
 /* ---------- destacados ---------- */
 .rail{display:flex;gap:10px;overflow-x:auto;padding:2px 0 10px;scroll-snap-type:x proximity;scrollbar-width:none}
 .rail::-webkit-scrollbar{display:none}
+.relwrap2{position:relative}
+.railbtn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:38px;height:38px;display:grid;place-items:center;padding:0;
+  background:rgba(0,0,0,.6);border:1px solid var(--line);border-radius:50%;color:#fff;
+  font-size:20px;line-height:1;cursor:pointer;transition:border-color .2s,background .2s;
+}
+.railbtn:hover{background:rgba(30,33,38,.92);border-color:#5d636e}
+.railbtn.prev{left:-6px}
+.railbtn.next{right:-6px}
+@media(max-width:659px){.railbtn{display:none}}
 .card{flex:0 0 auto;width:clamp(140px,42vw,190px);scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;text-decoration:none}
 .card .ph{aspect-ratio:1/1;background:var(--surface);border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}
 .card img{width:100%;height:100%;object-fit:contain;transition:transform .35s ease}
@@ -405,6 +449,17 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
     <a class="logo" href="#" id="home" aria-label="Supply BA, ir al inicio">
       <img src="brand/wordmark.webp" width="96" height="54" alt="Supply BA">
     </a>
+    <nav class="nav" aria-label="Explorar catálogo">
+      <div class="dd" id="ddMarcas">
+        <button type="button" class="ddb" aria-haspopup="true" aria-expanded="false">Marcas <span class="car">▾</span></button>
+        <div class="ddm" id="ddmMarcas"></div>
+      </div>
+      <div class="dd" id="ddTipos">
+        <button type="button" class="ddb" aria-haspopup="true" aria-expanded="false">Categorías <span class="car">▾</span></button>
+        <div class="ddm" id="ddmTipos"></div>
+      </div>
+      <a class="ddc" href="#encargue">Cómo funciona el encargue</a>
+    </nav>
     <label class="search">
       <span class="sr">Buscar</span>
       <input type="search" id="q" placeholder="Buscar producto" autocomplete="off" enterkeyhint="search">
@@ -442,7 +497,11 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
     <h2 class="sec"><span aria-hidden="true">✦</span> Marcas</h2>
     <div class="brandgrid" id="brandTiles"></div>
     <h2 class="sec"><span aria-hidden="true">✦</span> Recién llegados</h2>
-    <div class="rail" id="featured"></div>
+    <div class="relwrap2">
+      <div class="rail" id="featured"></div>
+      <button type="button" class="railbtn prev" id="featPrev" aria-label="Ver anteriores">‹</button>
+      <button type="button" class="railbtn next" id="featNext" aria-label="Ver siguientes">›</button>
+    </div>
     <h2 class="sec"><span aria-hidden="true">✦</span> Categorías</h2>
     <div class="cats" id="tipoTiles"></div>
 
@@ -687,6 +746,45 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
   $('#cWa').href = `${waBase}?text=${encodeURIComponent('Hola Supply BA! Quiero hacer un encargue.')}`;
   $('#cIg').href = igUrl;
   $('#fab').href = `${waBase}?text=${encodeURIComponent('Hola Supply BA! Quiero hacer un encargue.')}`;
+
+  /* ---------- menús del header ---------- */
+  function buildHeaderMenus() {
+    const countOf = (slug) => data.products.reduce((n, p) => n + (p.brandSlug === slug ? 1 : 0), 0);
+    const mk = (href, label, cnt, isOn) => {
+      const a = document.createElement('a');
+      a.href = href; a.dataset.slug = href;
+      a.classList.toggle('on', !!isOn);
+      a.innerHTML = `<span>${esc(label)}</span><small>${cnt}</small>`;
+      return a;
+    };
+    const mm = $('#ddmMarcas');
+    mm.replaceChildren(...[...data.brands]
+      .sort((a, b) => countOf(b.slug) - countOf(a.slug) || a.name.localeCompare(b.name, 'es'))
+      .map((b) => mk(`#marca=${b.slug}`, b.name, countOf(b.slug), state.brand === b.slug)));
+    const mt = $('#ddmTipos');
+    mt.replaceChildren(...data.tipos.map((t) => mk(`#tipo=${t.slug}`, t.name, t.count, state.tipo === t.slug)));
+    const curBrand = state.brand && brandBySlug.get(state.brand);
+    const curTipo = state.tipo && tipoBySlug.get(state.tipo);
+    $('#ddMarcas .ddb').childNodes[0].textContent = curBrand ? curBrand.name : 'Marcas';
+    $('#ddTipos .ddb').childNodes[0].textContent = curTipo ? curTipo.name : 'Categorías';
+  }
+  function closeDds() {
+    document.querySelectorAll('.dd').forEach((d) => { d.classList.remove('open'); d.querySelector('.ddb').setAttribute('aria-expanded', 'false'); });
+  }
+  document.querySelectorAll('.dd').forEach((d) => {
+    const b = d.querySelector('.ddb');
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = d.classList.contains('open');
+      closeDds();
+      if (!open) { d.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dd')) closeDds();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDds(); });
+  buildHeaderMenus();
   const message = (p) => cfg.mensaje
     .replace('{producto}', p.name)
     .replace('{codigo}', p.num != null ? `#${p.num}` : p.id)
@@ -829,18 +927,16 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
     const hs = $('#heroStats');
     if (hs) hs.innerHTML = `<b>${data.products.length.toLocaleString('es-AR')}</b> productos · <b>${data.brands.length}</b> marcas · <b>${data.tipos.length}</b> secciones`;
     const countOf = (slug) => data.products.reduce((n, p) => n + (p.brandSlug === slug ? 1 : 0), 0);
-    const withImg = () => data.products.filter((p) => p.img);
-    const doors = document.querySelectorAll('.doors .door .ph');
-    if (doors.length) {
-      const pool = withImg();
-      doors.forEach((ph, i) => {
-        const p = pool[i % pool.length];
-        if (!p) return;
-        ph.style.backgroundImage = `linear-gradient(180deg,rgba(8,9,11,.18),rgba(8,9,11,.28) 55%,rgba(8,9,11,.55)),url("${p.img}")`;
+    const doorImg = (sel, src) => {
+      const ph = document.querySelector(sel);
+      if (ph) {
+        ph.style.backgroundImage = `linear-gradient(180deg,rgba(8,9,11,.14),rgba(8,9,11,.26) 55%,rgba(8,9,11,.52)),url("${src}")`;
         ph.style.backgroundSize = 'cover';
         ph.style.backgroundPosition = 'center';
-      });
-    }
+      }
+    };
+    doorImg('.door.s .ph', 'img/hero-stock.jpg');
+    doorImg('.door.e .ph', 'img/hero-encargues.jpg');
     const brandList = [...data.brands].sort((a, b) => countOf(b.slug) - countOf(a.slug) || a.name.localeCompare(b.name, 'es'));
     $('#brandTiles').replaceChildren(...brandList.map((b) => {
       const a = document.createElement('a');
@@ -853,7 +949,7 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
       }, { once: true });
       return a;
     }));
-    $('#featured').replaceChildren(...interleave([...data.products].sort((a, b) => (b.num ?? 0) - (a.num ?? 0))).slice(0, 16).map((p) => {
+    $('#featured').replaceChildren(...onePerBrand().map((p) => {
       const a = document.createElement('a');
       a.className = 'card'; a.href = `#p=${p.id}`;
       a.innerHTML = `<span class="ph"><img loading="lazy" decoding="async" src="${esc(p.thumb)}" alt="${esc(p.name)}"><span class="wm" aria-hidden="true"></span></span>` +
@@ -903,6 +999,13 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
     const arr = [...groups.values()], out = [];
     for (let i = 0; out.length < items.length; i++) arr.forEach((g) => { if (g[i]) out.push(g[i]); });
     return out;
+  }
+  function onePerBrand() {
+    const groups = new Map();
+    data.products.forEach((p) => { if (!groups.has(p.brandSlug)) groups.set(p.brandSlug, []); groups.get(p.brandSlug).push(p); });
+    const out = [];
+    groups.forEach((g) => out.push(g[Math.floor(Math.random() * g.length)]));
+    return interleave(out);
   }
   function filter() {
     const tokens = norm(state.q).split(/\s+/).filter(Boolean);
@@ -960,6 +1063,7 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
   function render(keepScroll) {
     const home = isHome();
     document.body.dataset.view = home ? 'home' : 'cat';
+    buildHeaderMenus();
     const bits = [];
     if (state.q) bits.push(`“${state.q}”`);
     if (state.tipo && tipoBySlug.get(state.tipo)) bits.push(tipoBySlug.get(state.tipo).name);
@@ -1163,6 +1267,8 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
     $('#q').value = '';
     go({ brand: '', tipo: '', q: '', ver: '' });
   };
+  $('#featPrev').addEventListener('click', () => { $('#featured').scrollBy({ left: -360, behavior: 'smooth' }); });
+  $('#featNext').addEventListener('click', () => { $('#featured').scrollBy({ left: 360, behavior: 'smooth' }); });
   $('#home').addEventListener('click', reset);
   $('#clear').addEventListener('click', () => { $('#q').value = ''; go({ brand: '', tipo: '', q: '', ver: 'todo' }); });
   $('#sort').addEventListener('change', (e) => go({ sort: e.target.value, ver: 'todo' }, true));
