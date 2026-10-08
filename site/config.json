@@ -2,7 +2,7 @@
   "nombre": "Supply BA",
   "whatsapp": "5491144785658",
   "instagram": "supply_ba_",
-  "mostrarPrecios": false,
+  "mostrarPrecios": true,
   "moneda": "ARS",
   "precios": {
     "mostrar": false,
