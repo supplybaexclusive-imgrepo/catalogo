@@ -187,8 +187,9 @@ main{padding:0 var(--pad) 60px;max-width:1500px;margin:0 auto}
     linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
     linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),
     radial-gradient(120% 100% at 50% 0%,#2d3036,#17191d);
-    background-size:38px 38px,38px 38px,auto;transition:transform .55s ease,filter .4s ease}
-  .door .ph::after{content:'foto ejemplo';position:absolute;inset:auto 0 20px;text-align:center;color:#4a4f58;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+    background-size:38px 38px,38px 38px,auto;background-position:center;
+    transition:transform .55s ease,filter .4s ease}
+  .door .ph::after{content:'';position:absolute;inset:auto 0 0;height:72%;pointer-events:none;background:linear-gradient(rgba(8,9,11,.04),rgba(8,9,11,.82))}
   .door b{position:relative;color:#fff;font-stretch:125%;font-weight:800;font-size:clamp(36px,7vw,66px);letter-spacing:.05em;text-transform:uppercase;line-height:1;text-shadow:0 2px 26px rgba(0,0,0,.55)}
   .door.s b{color:#d2efdb}
   .door:hover .ph{transform:scale(1.045);filter:brightness(1.16)}
@@ -420,7 +421,7 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
   <!-- ===== landing ===== -->
   <div class="homeonly">
     <div class="doors">
-      <a class="door s" href="#ver=stock" title="Ver productos en stock">
+      <a class="door s" href="https://supplyba.com.ar?utm_source=catalogo&utm_medium=portada&utm_campaign=ver_stock" target="_blank" rel="noopener" title="Ver el stock disponible en supplyba.com.ar">
         <div class="ph"></div>
         <b>Stock</b>
       </a>
@@ -828,6 +829,18 @@ dialog#cart{width:min(640px,100vw);height:auto;max-height:92dvh}
     const hs = $('#heroStats');
     if (hs) hs.innerHTML = `<b>${data.products.length.toLocaleString('es-AR')}</b> productos · <b>${data.brands.length}</b> marcas · <b>${data.tipos.length}</b> secciones`;
     const countOf = (slug) => data.products.reduce((n, p) => n + (p.brandSlug === slug ? 1 : 0), 0);
+    const withImg = () => data.products.filter((p) => p.img);
+    const doors = document.querySelectorAll('.doors .door .ph');
+    if (doors.length) {
+      const pool = withImg();
+      doors.forEach((ph, i) => {
+        const p = pool[i % pool.length];
+        if (!p) return;
+        ph.style.backgroundImage = `linear-gradient(180deg,rgba(8,9,11,.18),rgba(8,9,11,.28) 55%,rgba(8,9,11,.55)),url("${p.img}")`;
+        ph.style.backgroundSize = 'cover';
+        ph.style.backgroundPosition = 'center';
+      });
+    }
     const brandList = [...data.brands].sort((a, b) => countOf(b.slug) - countOf(a.slug) || a.name.localeCompare(b.name, 'es'));
     $('#brandTiles').replaceChildren(...brandList.map((b) => {
       const a = document.createElement('a');
