@@ -5,6 +5,7 @@
   "scripts": {
     "build": "node tools/build.mjs ./Catalogo",
     "build:otro": "node tools/build.mjs",
+    "import": "node tools/import.mjs",
     "dev": "npx serve site"
   },
   "dependencies": {

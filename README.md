@@ -26,11 +26,36 @@ Editá `site/config.json`:
 4. Al final el script te muestra cuántos productos hay por tipo, los que quedaron en "Otros" y los logos de marca que faltan. Si agregás fotos nuevas, corrés el mismo comando y solo procesa lo nuevo.
 5. Probar local: `npx serve site`.
 
-## 3. Tipos y logos
+## 3. Sumar productos con un Excel (CSV)
+
+En vez de renombrar fotos a mano, hacés una planilla (la guardás como CSV) y las fotos van todas juntas en una carpeta:
+
+1. Creá la carpeta `tanda_imagenes/` en el proyecto y poné ahí todas las fotos nuevas.
+2. Hacé un archivo `tanda.csv` (abrilo con Excel) con encabezado y una fila por producto:
+
+   ```
+   marca,numero,nombre,foto,tipo,talles,precio
+   Supreme,45,Box Logo Hoodie Black,supreme-45.png,Buzos,M-3XL,75000
+   Supreme,46,Box Logo Tee White,supreme-46.png,Remeras,M-2XL,45000
+   ```
+
+   - `foto`: nombre exacto del archivo en `tanda_imagenes/` (puede tener o no extensión).
+   - `tipo`: opcional; si lo dejás vacío se asigna solo por el nombre (Remeras, Buzos, Zapatillas…).
+   - `talles`: opcional, ej. `M-3XL`, `36-46` o `DEPENDE PROVEEDOR`.
+   - `precio`: opcional, en pesos.
+   Las columnas pueden ir en cualquier orden y faltar (`marca` y `nombre` son obligatorias).
+3. Corré:
+   ```
+   node tools/import.mjs tanda.csv tanda_imagenes
+   ```
+   Copia cada foto a `Catalogo/MARCA/tipo/(numero) nombre.ext` y guarda tipo/talles/precio para el build.
+4. Actualizá el catálogo: `node tools/build.mjs ./Catalogo`.
+
+## 4. Tipos y logos
 - **Tipos:** se asignan solos por palabras del nombre de la carpeta y del producto. Para corregir o sumar palabras, editá `tools/tipos.json` y volvé a correr el build.
 - **Logos de marcas:** ya vienen cargados los 13 en `site/logos/`. Para sumar o cambiar uno, guardalo ahí con el nombre de la marca en minúsculas y con guiones (ej. `rick-owens`) (`.webp`, `.png` o `.svg`, cuadrado y con su fondo). No hace falta correr el build. Si una marca muestra el nombre en texto en vez del logo, el nombre del archivo no coincide con el de la carpeta: el build te muestra el nombre exacto.
 
-## 4. Precios (opcional)
+## 5. Precios (opcional)
 
 **Sistema USD → pesos:** pasame la lista en USD y el sitio la muestra en pesos, con la cotización del día y redondeada.
 
@@ -52,14 +77,16 @@ Editá `site/config.json`:
 
 El precio aparece en las tarjetas, en la ficha (pesos con su equivalencia US$) y se suma en el carrito como *Total estimado*. Al enviar por WhatsApp va incluido renglón por renglón.
 
-## 5. Talles
-Los talles se sacan solos de los paréntesis de las carpetas (ej. `BAPE T-Shirts (M-3XL)`, `Nike Shoes (36-46)`) y quedan guardados en cada producto. La ficha muestra chips seleccionables que se mandan junto al pedido (`M`, `L`, `36`, `46`, etc.). Si la carpeta trae `(DEPENDE PROVEEDOR)` se muestra "A confirmar por chat". Ya están cargados sin correr nada.
+## 6. Talles
+Los talles se guardan por producto y la ficha muestra chips seleccionables que se mandan junto al pedido (`M`, `L`, `36`, `46`, etc.). Si traen `DEPENDE PROVEEDOR` se muestra "A confirmar por chat".
+- Al importarlas por Excel se cargan en la columna `talles` (ver paso 3).
+- Si ya están cargados no tenés que hacer nada: el build los conserva.
 
-## 6. Medición y compartir
+## 7. Medición y compartir
 La web emite eventos en `window.dataLayer` (`select_item`, `add_to_cart`, `begin_checkout`, `share`, `ver_stock`). Para medir conectá Google Tag Manager / GA4 usando esos nombres. Los links a la tienda llevan parámetros `utm_source`/`utm_medium`/`utm_campaign`.
 
-## 7. Textos del encargue
+## 8. Textos del encargue
 Están en `site/index.html`, dentro de `<section id="encargue">`. Se editan como texto normal.
 
-## 8. Publicar gratis
+## 9. Publicar gratis
 Netlify: arrastrá la carpeta `site` en app.netlify.com/drop. Cloudflare Pages: Workers & Pages → Create → Pages → Upload assets → carpeta `site`. Para actualizar, volvés a subirla.
