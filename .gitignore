@@ -6,4 +6,7 @@ node_modules/
 .opencode/
 
 # Logs
-*.logsupplyba-site.zip
+*.log
+
+# Zip de deploy
+supplyba-site.zip
