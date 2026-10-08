@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://supplybaencargos.netlify.app/sitemap.xml
+Sitemap: https://catalogo-eij.pages.dev/sitemap.xml
